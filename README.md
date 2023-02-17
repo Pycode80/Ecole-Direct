@@ -2,3 +2,6 @@ Python script that offers more advanced statistics on your grades with the "ecol
 Required modules are: 
 requests, json, urllib, art, matplotlib and getpass4
 The application requires the creation of files. I invite you to place it in a place where it can create them.
+
+TO COMPILE : 
+pyinstaller --noconfirm --onedir --console --paths "C:/Users/%USERNAME%/AppData/Local/Programs/Python/Python39/Lib"  "main.py"
