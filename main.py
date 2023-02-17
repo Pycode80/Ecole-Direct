@@ -72,28 +72,28 @@ def notes(whatiwant):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False :
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 :
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True:
+			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or toutelesnotes[x]['valeur'] == '':
 				pass
 		print("Votre moyenne annuelle est de :",round(somme_notes/somme_coef,2))
 
 	if whatiwant == 'mediane_annuelle':
 		notes = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False :
-				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['valeur'] != '':
+				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.')))/float(toutelesnotes[x]['noteSur'])
 				notes.append(note)
-			if toutelesnotes[x]['noteSur'] == 20 :
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
-			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True:
+			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True and toutelesnotes[x]['valeur'] == '':
 				pass
 		notes.sort()
 		if len(notes)%2 == 0:
@@ -105,10 +105,10 @@ def notes(whatiwant):
 	if whatiwant == 'mediane_A001':
 		notes = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001' and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A001' and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or  toutelesnotes[x]['codePeriode'] != 'A001':
@@ -123,10 +123,10 @@ def notes(whatiwant):
 	if whatiwant == 'mediane_A002':
 		notes = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002' and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A002':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A002' and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or  toutelesnotes[x]['codePeriode'] != 'A002':
@@ -144,10 +144,10 @@ def notes(whatiwant):
 	if whatiwant == 'mediane_A003':
 		notes = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003' and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A003' and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or  toutelesnotes[x]['codePeriode'] != 'A003':
@@ -166,11 +166,11 @@ def notes(whatiwant):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001' and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A001' and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
@@ -186,11 +186,11 @@ def notes(whatiwant):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002' and toutelesnotes[x]['valeur'] != '':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A002' and toutelesnotes[x]['nonSignificatif'] == False:
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A002' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['valeur'] != '':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
@@ -207,11 +207,11 @@ def notes(whatiwant):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['codePeriode'] == 'A003':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
@@ -226,11 +226,11 @@ def notes(whatiwant):
 		notes = []
 		dates = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False :
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False :
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
-			if toutelesnotes[x]['noteSur'] == 20 :
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' :
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
@@ -249,11 +249,11 @@ def notes(whatiwant):
 		notes = []
 		dates = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A001':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A001':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['codePeriode'] == 'A001':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
@@ -265,17 +265,17 @@ def notes(whatiwant):
 		plt.title("Tracé des notes du T1")
 		ax=plt.gca()
 		ax.get_xaxis().set_visible(False)
-		ax.set_xlim(0, 20)
+		ax.set_ylim(0, 20)
 		plt.show()
 	if whatiwant == 'tracenotesA002':
 		notes = []
 		dates = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A002':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A002':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['codePeriode'] == 'A002':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
@@ -293,11 +293,11 @@ def notes(whatiwant):
 		notes = []
 		dates = []
 		for x in range(0,len(toutelesnotes)):
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['codePeriode'] == 'A003':
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['codePeriode'] == 'A003':
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['codePeriode'] == 'A003':
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
 				notes.append(note)
 				dates.append(toutelesnotes[x]['date'])
@@ -309,7 +309,7 @@ def notes(whatiwant):
 		plt.title("Tracé des notes du T3")
 		ax=plt.gca()
 		ax.get_xaxis().set_visible(False)
-		ax.set_xlim(0, 20)
+		ax.set_ylim(0, 20)
 		plt.show()
 
 def notes_matieres(matiere,periode):
@@ -326,11 +326,11 @@ def notes_matieres(matiere,periode):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere:
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere:
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['libelleMatiere'] == matiere:
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['libelleMatiere'] == matiere:
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
@@ -345,11 +345,11 @@ def notes_matieres(matiere,periode):
 		somme_notes = 0
 		for x in range(0,len(toutelesnotes)):
 			#print(toutelesnotes[x]['valeur']+'/'+toutelesnotes[x]['noteSur']+' coef : '+toutelesnotes[x]['coef']+' en '+toutelesnotes[x]['libelleMatiere'])
-			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
 				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.'))/float(toutelesnotes[x]['noteSur']))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
-			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
 				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))*float(toutelesnotes[x]['coef'])
 				somme_coef += float(toutelesnotes[x]['coef'])
 				somme_notes += note
@@ -360,6 +360,61 @@ def notes_matieres(matiere,periode):
 		else:
 			print("Votre moyenne pour la période",periode,"pour la matière",matiere,"est de :",round(somme_notes/somme_coef,2))
 	
+
+def trace_matieres(matiere,periode):
+	payload = '''data={
+    "anneeScolaire": ""
+}'''
+	s.headers.update({'content-length':f'{len(payload)}'})
+	id_user = read_in_file('id_user.txt')
+	r = s.post(f'https://api.ecoledirecte.com/v3/Eleves/{id_user}/notes.awp?verbe=get&v=4.27.1',data=payload)
+	answer = json.loads(r.text)
+	toutelesnotes = answer['data']['notes']
+	if periode == None:
+		notes = []
+		dates = []
+		for x in range(0,len(toutelesnotes)):
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere:
+				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.')))/float(toutelesnotes[x]['noteSur'])
+				notes.append(note)
+				dates.append(toutelesnotes[x]['date'])
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['libelleMatiere'] == matiere:
+				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
+				notes.append(note)
+				dates.append(toutelesnotes[x]['date'])
+			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or toutelesnotes[x]['libelleMatiere'] != matiere:
+				pass
+		plt.plot(dates,notes)
+		plt.xlabel("Date")
+		plt.ylabel("Note")
+		plt.title("Tracé des notes pour la matière : "+matiere)
+		ax=plt.gca()
+		ax.set_ylim(0, 22)
+		plt.show()
+
+		
+
+	if periode != None:
+		notes = []
+		dates = []
+		for x in range(0,len(toutelesnotes)):
+			if toutelesnotes[x]['noteSur'] != 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['valeur'] != 'Abs\xa0' and toutelesnotes[x]['nonSignificatif'] == False and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
+				note = (20*float(toutelesnotes[x]['valeur'].replace(',', '.')))/float(toutelesnotes[x]['noteSur'])
+				notes.append(note)
+				dates.append(toutelesnotes[x]['date'])
+			if toutelesnotes[x]['noteSur'] == 20 and toutelesnotes[x]['valeur'] != '' and toutelesnotes[x]['libelleMatiere'] == matiere and toutelesnotes[x]['codePeriode'] == periode:
+				note = float(toutelesnotes[x]['valeur'].replace(',', '.'))
+				notes.append(note)
+				dates.append(toutelesnotes[x]['date'])
+			if toutelesnotes[x]['valeur'] == 'Abs\xa0' or toutelesnotes[x]['nonSignificatif'] == True or toutelesnotes[x]['libelleMatiere'] != matiere or toutelesnotes[x]['codePeriode'] != periode:
+				pass
+		plt.plot(dates,notes)
+		plt.xlabel("Date")
+		plt.ylabel("Note")
+		plt.title("Tracé des notes pour la matière : "+matiere)
+		ax=plt.gca()
+		ax.set_ylim(0, 22)
+		plt.show()
 
 
 
@@ -489,8 +544,8 @@ if __name__ == '__main__':
 					"Vos identifiants sont incorrectes !"
 				notes('mediane_A003')
 	if choix == 3:
-		print("Vous avez choisi le tracé de vos notes. Souhaitez-vous\n 1. Le tracé annuel\n 2. Le tracé par periode")
-		trace = int(input("Entrer un nombre entre 1 et 2 : "))
+		print("Vous avez choisi le tracé de vos notes. Souhaitez-vous\n 1. Le tracé annuel de toutes vos notes\n 2. Le tracé par periode de toutes vos notes\n 3. Le tracé annuel pour une matière \n 4. Le tracé par période pour une matière")
+		trace = int(input("Entrer un nombre entre 1 et 4 : "))
 		if trace == 1:
 			print("Vous avez choisi le tracé annuel de vos notes.\n Je vais vous demander d'entrer vos identifiants ECOLE DIRECTE\n(aucune information ne sera collectée).")	
 			identifiant = input("Votre identifiant : ")
@@ -530,6 +585,43 @@ if __name__ == '__main__':
 				except:
 					"Vos identifiants sont incorrectes !"
 				notes('tracenotesA003')
+		if trace == 3:
+			print("Il est nécessaire que vous vous connectiez pour afficher vos matières")
+			identifiant = input("Votre identifiant : ")
+			motdepasse = getpass('Votre mot de passe : ')
+			try:
+				connect(identifiant,motdepasse)
+			except:
+				"Vos identifiants sont incorrectes !"
+			l = listes_matieres()
+			counter = 1
+			for el in l:
+				print(str(counter)+'. '+el)
+				counter += 1
+			matiere = int(input("Entrer un nombre entre 1 et "+str(counter-1)+' pour sélectionnez la matière : '))
+			trace_matieres(l[matiere-1],None)
+		if trace == 4:
+			print("Il est nécessaire que vous vous connectiez pour afficher vos matières")
+			identifiant = input("Votre identifiant : ")
+			motdepasse = getpass('Votre mot de passe : ')
+			try:
+				connect(identifiant,motdepasse)
+			except:
+				"Vos identifiants sont incorrectes !"
+			l = listes_matieres()
+			counter = 1
+			for el in l:
+				print(str(counter)+'. '+el)
+				counter += 1
+			matiere = int(input("Entrer un nombre entre 1 et "+str(counter-1)+' pour sélectionnez la matière : '))
+			p = input('Pour quelle période souhaitez-vous le tracé.\n 1. 1er Trimestre\n 2. 2e Trimestre \n 3. 3e Trimestre\nEntrer un nombre entre 1 et 3 : ')
+			periode = 'A00'+str(p)
+			trace_matieres(l[matiere-1],periode)
+
+
+		
+
+
 
 	if choix == 4:
 		print("Vous avez choisi les moyennes par matières.Connectez-vous pour voir la liste de vos matières.")
