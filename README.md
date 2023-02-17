@@ -1,6 +1,4 @@
-# Ecole-Direct
-Information about your ecole direct account
-
-This application is still in development but more functionality will be added soon.
-
-This application was made possible by the following website: https://documenter.getpostman.com/view/11643143/SztK1QKb#38f7d9de-6c1f-44e8-aba5-2d16eed6c5d6
+Python script that offers more advanced statistics on your grades with the "ecole directe" platform. No information is collected. Features will be added soon to provide even more information.
+Required modules are: 
+requests, json, urllib, art, matplotlib and getpass4
+The application requires the creation of files. I invite you to place it in a place where it can create them.
